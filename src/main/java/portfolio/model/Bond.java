@@ -13,24 +13,24 @@ public class Bond {
     private UUID uid;
 
     @Column(name = "cost")
-    private double cost;
+    private Double cost;
 
     @Column(name = "payment")
-    private double payment;
+    private Double payment;
 
     @Column(name = "delayBeforePayment")
-    private int delayBeforePayment;
+    private Integer delayBeforePayment;
 
     @Column(name = "risk")
-    private int risk;
+    private Integer risk;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "conjuctureID")
-    private UUID conjunctureID;
+    private Integer conjunctureID;
 
-    public Bond(double cost, double payment, int delayBeforePayment, int risk, String name, UUID conjunctureID) {
+    public Bond(Double cost, Double payment, Integer delayBeforePayment, Integer risk, String name, Integer conjunctureID) {
         this.cost = cost;
         this.payment = payment;
         this.delayBeforePayment = delayBeforePayment;
@@ -43,35 +43,43 @@ public class Bond {
 
     }
 
-    public double getCost() {
+    public UUID getUid() {
+        return uid;
+    }
+
+    public void setUid(UUID uid) {
+        this.uid = uid;
+    }
+
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
-    public double getPayment() {
+    public Double getPayment() {
         return payment;
     }
 
-    public void setPayment(double payment) {
+    public void setPayment(Double payment) {
         this.payment = payment;
     }
 
-    public int getDelayBeforePayment() {
+    public Integer getDelayBeforePayment() {
         return delayBeforePayment;
     }
 
-    public void setDelayBeforePayment(int delayBeforePayment) {
+    public void setDelayBeforePayment(Integer delayBeforePayment) {
         this.delayBeforePayment = delayBeforePayment;
     }
 
-    public int getRisk() {
+    public Integer getRisk() {
         return risk;
     }
 
-    public void setRisk(int risk) {
+    public void setRisk(Integer risk) {
         this.risk = risk;
     }
 
@@ -83,11 +91,11 @@ public class Bond {
         this.name = name;
     }
 
-    public UUID getConjunctureID() {
+    public Integer getConjunctureID() {
         return conjunctureID;
     }
 
-    public void setConjunctureID(UUID conjunctureID) {
+    public void setConjunctureID(Integer conjunctureID) {
         this.conjunctureID = conjunctureID;
     }
 

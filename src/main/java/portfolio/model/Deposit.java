@@ -10,33 +10,41 @@ public class Deposit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID uid;
+    private Integer uid;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "minimalPeriod")
-    private int minimalPeriod;
+    private Integer minimalPeriod;
 
     @Column(name = "interestRate")
-    private double interestRate;
+    private Double interestRate;
 
     @Column(name = "risk")
-    private int risk;
+    private Integer risk;
 
     @Column(name = "conjunctureID")
-    private UUID conjunctureID;
+    private Integer conjunctureID;
 
     public Deposit() {
 
     }
 
-    public Deposit(String name, int minimalPeriod, double interestRate, int risk, UUID conjunctureID) {
+    public Deposit(String name, Integer minimalPeriod, Double interestRate, Integer risk, Integer conjunctureID) {
         this.name = name;
         this.minimalPeriod = minimalPeriod;
         this.interestRate = interestRate;
         this.risk = risk;
         this.conjunctureID = conjunctureID;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public String getName() {
@@ -47,35 +55,35 @@ public class Deposit {
         this.name = name;
     }
 
-    public int getMinimalPeriod() {
+    public Integer getMinimalPeriod() {
         return minimalPeriod;
     }
 
-    public void setMinimalPeriod(int minimalPeriod) {
+    public void setMinimalPeriod(Integer minimalPeriod) {
         this.minimalPeriod = minimalPeriod;
     }
 
-    public double getInterestRate() {
+    public Double getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
+    public void setInterestRate(Double interestRate) {
         this.interestRate = interestRate;
     }
 
-    public int getRisk() {
+    public Integer getRisk() {
         return risk;
     }
 
-    public void setRisk(int risk) {
+    public void setRisk(Integer risk) {
         this.risk = risk;
     }
 
-    public UUID getConjunctureID() {
+    public Integer getConjunctureID() {
         return conjunctureID;
     }
 
-    public void setConjunctureID(UUID conjunctureID) {
+    public void setConjunctureID(Integer conjunctureID) {
         this.conjunctureID = conjunctureID;
     }
 

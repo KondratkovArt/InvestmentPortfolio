@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class MetalType {
 
     @Id
-    @GeneratedValue ()
-
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "type")
     private String type;
