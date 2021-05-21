@@ -1,55 +1,59 @@
 package portfolio.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class FundDTO {
 
-    private UUID uid;
-    private double capital;
-    private double profit;
+    private Double capital;
+    private Double profit;
 
-    private List<BondsDTO>  bonds;
+    private List<BondDTO>  bonds;
     private List<DepositDTO> depositDTOS;
     private List<PreciousMetalDTO> metals;
     private List<StockDTO> stockDTOS;
 
 
-    public FundDTO(UUID uid, double capital) {
-        this.uid = uid;
+    public FundDTO(Double capital, Double profit, List<BondDTO> bonds,
+                   List<DepositDTO> depositDTOS, List<PreciousMetalDTO> metals,
+                   List<StockDTO> stockDTOS) {
         this.capital = capital;
+        this.profit = profit;
+        this.bonds = bonds;
+        this.depositDTOS = depositDTOS;
+        this.metals = metals;
+        this.stockDTOS = stockDTOS;
     }
 
-    public double getCapital() {
+    public Double getCapital() {
         return capital;
     }
 
-    public void setCapital(double capital) {
+    public void setCapital(Double capital) {
         this.capital = capital;
     }
 
-    public double getProfit() {
+    public Double getProfit() {
         return profit;
     }
 
-    public void setProfit(double profit) {
+    public void setProfit(Double profit) {
         this.profit = profit;
     }
 
-    public List<BondsDTO> getBonds() {
+    public List<BondDTO> getBonds() {
         return bonds;
     }
 
-    public void setBonds(List<BondsDTO> bonds) {
+    public void setBonds(List<BondDTO> bonds) {
         this.bonds = bonds;
     }
 
-    public List<DepositDTO> getDeposits() {
+    public List<DepositDTO> getDepositDTOS() {
         return depositDTOS;
     }
 
-    public void setDeposits(List<DepositDTO> depositDTOS) {
+    public void setDepositDTOS(List<DepositDTO> depositDTOS) {
         this.depositDTOS = depositDTOS;
     }
 
@@ -61,11 +65,11 @@ public class FundDTO {
         this.metals = metals;
     }
 
-    public List<StockDTO> getStocks() {
+    public List<StockDTO> getStockDTOS() {
         return stockDTOS;
     }
 
-    public void setStocks(List<StockDTO> stockDTOS) {
+    public void setStockDTOS(List<StockDTO> stockDTOS) {
         this.stockDTOS = stockDTOS;
     }
 }

@@ -4,49 +4,16 @@ import java.util.UUID;
 
 public class StockDTO {
 
-
-    private UUID uid;
     private String name;
-    private double price;
-    private int risk;
-    private double profitability;
+    private Double price;
+    private Integer risk;
+    private Double profitability;
 
 
-    public StockDTO(UUID uid, String name, double price, int risk, double profitability) {
-        this.uid = uid;
+    public StockDTO(String name, Double price, Integer risk, Double profitability) {
         this.name = name;
         this.price = price;
         this.risk = risk;
-        this.profitability = profitability;
-    }
-
-    public String getInfo() {
-        return "\nprice: " + price + "\nprofitability: " + profitability +
-                "\nrisk: " + risk;
-    }
-
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getRisk() {
-        return risk;
-    }
-
-    public void setRisk(int risk) {
-        this.risk = risk;
-    }
-
-    public double getProfitability() {
-        return profitability;
-    }
-
-    public void setProfitability(double profitability) {
         this.profitability = profitability;
     }
 
@@ -58,11 +25,37 @@ public class StockDTO {
         this.name = name;
     }
 
-    public UUID getUid() {
-        return uid;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setUid(UUID uid) {
-        this.uid = uid;
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getRisk() {
+        return risk;
+    }
+
+    public void setRisk(Integer risk) {
+        this.risk = risk;
+    }
+
+    public Double getProfitability() {
+        return profitability;
+    }
+
+    public void setProfitability(Double profitability) {
+        this.profitability = profitability;
+    }
+
+    @Override
+    public String toString() {
+        return "StockDTO{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", risk=" + risk +
+                ", profitability=" + profitability +
+                '}';
     }
 }

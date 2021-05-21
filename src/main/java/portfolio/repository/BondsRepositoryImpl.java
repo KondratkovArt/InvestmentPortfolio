@@ -1,7 +1,7 @@
 package portfolio.repository;
 
 
-import portfolio.dto.BondsDTO;
+import portfolio.dto.BondDTO;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -12,23 +12,23 @@ import java.util.UUID;
 @Repository
 public class BondsRepositoryImpl implements BondsRepository{
 
-    private List<BondsDTO> bonds = new ArrayList<>();
+    private List<BondDTO> bonds = new ArrayList<>();
 
 
     @PostConstruct
     private void init(){
-        bonds.add(new BondsDTO("Bond1", 1500, 4, 5, 2500));
-        bonds.add(new BondsDTO("Bond2", 2500, 5, 2, 3000));
-        bonds.add(new BondsDTO("Bond3", 1000, 3, 20, 7000));
+        bonds.add(new BondDTO("Bond1", 1500, 4, 5, 2500));
+        bonds.add(new BondDTO("Bond2", 2500, 5, 2, 3000));
+        bonds.add(new BondDTO("Bond3", 1000, 3, 20, 7000));
     }
 
     @Override
-    public List<BondsDTO> findAll() {
+    public List<BondDTO> findAll() {
         return bonds;
     }
 
     @Override
-    public BondsDTO findByName(String name) {
+    public BondDTO findByName(String name) {
         for (int i = 0; i < bonds.size(); i++) {
             if (bonds.get(i).getName().equals(name)) return bonds.get(i);
         }
@@ -36,7 +36,7 @@ public class BondsRepositoryImpl implements BondsRepository{
     }
 
     @Override
-    public BondsDTO findByUid(UUID uid) {
+    public BondDTO findByUid(UUID uid) {
         for (int i = 0; i < bonds.size(); i++) {
             if (bonds.get(i).getUid().equals(uid)) return bonds.get(i);
         }
@@ -44,7 +44,7 @@ public class BondsRepositoryImpl implements BondsRepository{
     }
 
     @Override
-    public void save(BondsDTO b) {
+    public void save(BondDTO b) {
         bonds.add(b);
     }
 

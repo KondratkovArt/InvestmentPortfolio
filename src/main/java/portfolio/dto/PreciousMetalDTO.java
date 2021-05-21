@@ -4,21 +4,14 @@ import java.util.UUID;
 
 public class PreciousMetalDTO {
 
-    private UUID uid;
     private MetalTypeDTO type;
-    private double cost;
-    private int risk;
+    private Double cost;
+    private Integer risk;
 
-    public PreciousMetalDTO(UUID uid, MetalTypeDTO type, double cost, int risk) {
-        this.uid = uid;
+    public PreciousMetalDTO(MetalTypeDTO type, Double cost, Integer risk) {
         this.type = type;
         this.cost = cost;
         this.risk = risk;
-    }
-
-    public String getInfo() {
-        return "\nMetalType: " + type + "\ncost: " + cost +
-                "\nrisk: " + risk;
     }
 
     public MetalTypeDTO getType() {
@@ -29,27 +22,28 @@ public class PreciousMetalDTO {
         this.type = type;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
-    public int getRisk() {
+    public Integer getRisk() {
         return risk;
     }
 
-    public UUID getUid() {
-        return uid;
-    }
-
-    public void setUid(UUID uid) {
-        this.uid = uid;
-    }
-
-    public void setRisk(int risk) {
+    public void setRisk(Integer risk) {
         this.risk = risk;
+    }
+
+    @Override
+    public String toString() {
+        return "PreciousMetalDTO{" +
+                "type=" + type +
+                ", cost=" + cost +
+                ", risk=" + risk +
+                '}';
     }
 }
