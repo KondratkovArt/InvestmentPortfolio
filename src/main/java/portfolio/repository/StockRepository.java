@@ -1,19 +1,19 @@
 package portfolio.repository;
 
-import portfolio.model.Stock;
+import portfolio.dto.StockDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface StockRepository {
 
-    List<Stock> findAll();
+    List<StockDTO> findAll();
 
-    Stock findByName(String name);
+    StockDTO findByName(String name);
 
-    Stock findByUid(UUID uid);
+    StockDTO findByUid(UUID uid);
 
-    void save(Stock stock);
+    void save(StockDTO stockDTO);
 
     void delete(UUID uid);
 }

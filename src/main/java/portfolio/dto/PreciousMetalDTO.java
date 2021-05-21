@@ -1,31 +1,31 @@
-package portfolio.model;
+package portfolio.dto;
 
 import java.util.UUID;
 
-public class PreciousMetal implements Investment {
+public class PreciousMetalDTO {
 
-    private UUID uid = UUID.randomUUID();
-    private MetalType type;
+    private UUID uid;
+    private MetalTypeDTO type;
     private double cost;
     private int risk;
 
-    public PreciousMetal(MetalType type, double cost, int risk) {
+    public PreciousMetalDTO(UUID uid, MetalTypeDTO type, double cost, int risk) {
+        this.uid = uid;
         this.type = type;
         this.cost = cost;
         this.risk = risk;
     }
 
-    @Override
     public String getInfo() {
         return "\nMetalType: " + type + "\ncost: " + cost +
                 "\nrisk: " + risk;
     }
 
-    public MetalType getType() {
+    public MetalTypeDTO getType() {
         return type;
     }
 
-    public void setType(MetalType type) {
+    public void setType(MetalTypeDTO type) {
         this.type = type;
     }
 
@@ -41,8 +41,6 @@ public class PreciousMetal implements Investment {
         return risk;
     }
 
-
-    @Override
     public UUID getUid() {
         return uid;
     }

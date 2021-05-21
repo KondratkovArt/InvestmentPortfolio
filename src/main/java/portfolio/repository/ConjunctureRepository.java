@@ -1,17 +1,16 @@
 package portfolio.repository;
 
-import portfolio.model.Conjuncture;
-import portfolio.model.Investment;
+import portfolio.dto.ConjunctureDTO;
 
 import java.util.List;
 
 public interface ConjunctureRepository {
 
-    Conjuncture getConjuncture();
+    ConjunctureDTO getConjuncture();
 
     List<Investment> getAllInvestments();
 
-    void save(Conjuncture conjuncture);
+    void save(ConjunctureDTO conjuncture);
 
     void delete();
 

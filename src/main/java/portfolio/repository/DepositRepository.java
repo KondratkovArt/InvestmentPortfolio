@@ -1,19 +1,19 @@
 package portfolio.repository;
 
-import portfolio.model.Deposit;
+import portfolio.dto.DepositDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface DepositRepository {
 
-    List<Deposit> findAll();
+    List<DepositDTO> findAll();
 
-    Deposit findByName(String name);
+    DepositDTO findByName(String name);
 
-    Deposit findByUid(UUID uid);
+    DepositDTO findByUid(UUID uid);
 
-    void save(Deposit deposit);
+    void save(DepositDTO depositDTO);
 
     void delete(UUID uid);
 

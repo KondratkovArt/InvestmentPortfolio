@@ -1,25 +1,25 @@
-package portfolio.model;
+package portfolio.dto;
 
 import java.util.UUID;
 
-public class Stock implements Investment {
+public class StockDTO {
 
 
-    private UUID uid = UUID.randomUUID();
+    private UUID uid;
     private String name;
     private double price;
     private int risk;
     private double profitability;
 
 
-    public Stock(String name, double price, int risk, double profitability) {
+    public StockDTO(UUID uid, String name, double price, int risk, double profitability) {
+        this.uid = uid;
         this.name = name;
         this.price = price;
         this.risk = risk;
         this.profitability = profitability;
     }
 
-    @Override
     public String getInfo() {
         return "\nprice: " + price + "\nprofitability: " + profitability +
                 "\nrisk: " + risk;
@@ -50,7 +50,6 @@ public class Stock implements Investment {
         this.profitability = profitability;
     }
 
-
     public String getName() {
         return name;
     }
@@ -59,8 +58,6 @@ public class Stock implements Investment {
         this.name = name;
     }
 
-
-    @Override
     public UUID getUid() {
         return uid;
     }

@@ -1,20 +1,20 @@
 package portfolio.repository;
 
-import portfolio.model.MetalType;
-import portfolio.model.PreciousMetal;
+import portfolio.dto.MetalTypeDTO;
+import portfolio.dto.PreciousMetalDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface PreciousMetalRepository {
 
-    List<PreciousMetal> findAll();
+    List<PreciousMetalDTO> findAll();
 
-    PreciousMetal findByType(MetalType type);
+    PreciousMetalDTO findByType(MetalTypeDTO type);
 
-    PreciousMetal findByUid(UUID uid);
+    PreciousMetalDTO findByUid(UUID uid);
 
-    void save(PreciousMetal preciousMetal);
+    void save(PreciousMetalDTO preciousMetalDTO);
 
     void delete(UUID uid);
 }

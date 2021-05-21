@@ -1,7 +1,6 @@
 package portfolio.repository;
 
-import portfolio.model.Fund;
-import portfolio.model.Investment;
+import portfolio.dto.FundDTO;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -9,12 +8,12 @@ import java.util.UUID;
 
 public class FundRepositoryImpl implements FundRepository {
 
-    private Fund fund;
+    private FundDTO fund;
 
 
     @PostConstruct
     private void init() {
-        fund = new Fund(15000);
+        fund = new FundDTO(15000);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class FundRepositoryImpl implements FundRepository {
     }
 
     @Override
-    public void save(Fund fund) {
+    public void save(FundDTO fund) {
         this.fund = fund;
     }
 

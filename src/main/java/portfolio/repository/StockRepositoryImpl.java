@@ -1,6 +1,6 @@
 package portfolio.repository;
 
-import portfolio.model.Stock;
+import portfolio.dto.StockDTO;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -9,45 +9,45 @@ import java.util.UUID;
 
 public class StockRepositoryImpl implements StockRepository{
 
-    private List<Stock> stocks = new ArrayList<>();
+    private List<StockDTO> stockDTOS = new ArrayList<>();
 
 
     @PostConstruct
     private void init(){
-        stocks.add(new Stock("stock1", 1000, 5, 1200));
-        stocks.add(new Stock("stock2", 1500, 8, 2100));
-        stocks.add(new Stock("stock3", 500, 3, 700));
+        stockDTOS.add(new StockDTO("stock1", 1000, 5, 1200));
+        stockDTOS.add(new StockDTO("stock2", 1500, 8, 2100));
+        stockDTOS.add(new StockDTO("stock3", 500, 3, 700));
     }
 
     @Override
-    public List<Stock> findAll() {
-        return stocks;
+    public List<StockDTO> findAll() {
+        return stockDTOS;
     }
 
     @Override
-    public Stock findByName(String name) {
-        for (int i = 0; i < stocks.size(); i++) {
-            if (stocks.get(i).getName().equals(name)) return stocks.get(i);
+    public StockDTO findByName(String name) {
+        for (int i = 0; i < stockDTOS.size(); i++) {
+            if (stockDTOS.get(i).getName().equals(name)) return stockDTOS.get(i);
         }
         return null;
     }
 
     @Override
-    public Stock findByUid(UUID uid) {
-        for (int i = 0; i < stocks.size(); i++) {
-            if (stocks.get(i).getUid().equals(uid)) return stocks.get(i);
+    public StockDTO findByUid(UUID uid) {
+        for (int i = 0; i < stockDTOS.size(); i++) {
+            if (stockDTOS.get(i).getUid().equals(uid)) return stockDTOS.get(i);
         }
         return null;
     }
 
     @Override
-    public void save(Stock stock) {
-        stocks.add(stock);
+    public void save(StockDTO stockDTO) {
+        stockDTOS.add(stockDTO);
     }
 
     @Override
     public void delete(UUID uid) {
-        stocks.remove(findByUid(uid));
+        stockDTOS.remove(findByUid(uid));
     }
 
 }

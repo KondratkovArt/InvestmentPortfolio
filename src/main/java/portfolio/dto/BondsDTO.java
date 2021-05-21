@@ -1,11 +1,11 @@
-package portfolio.model;
+package portfolio.dto;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public class Bonds implements Investment {
+public class BondsDTO{
 
-    private UUID uid = UUID.randomUUID();
+    private UUID uid;
 
     private String name;
     private double cost;
@@ -14,7 +14,8 @@ public class Bonds implements Investment {
     private int risk;
 
 
-    public Bonds(String name, double cost, int delayBeforePayment, int risk, double payment) {
+    public BondsDTO(UUID uid, String name, double cost, int delayBeforePayment, int risk, double payment) {
+        this.uid = uid;
         this.name = name;
         this.cost = cost;
         this.delayBeforePayment = delayBeforePayment;
@@ -57,7 +58,6 @@ public class Bonds implements Investment {
         this.risk = risk;
     }
 
-    @Override
     public UUID getUid() {
         return uid;
     }
@@ -82,7 +82,6 @@ public class Bonds implements Investment {
         this.name = name;
     }
 
-    @Override
     public String getInfo() {
         return "\ncost: " + cost + "\npayment: " + payment +
                 "\ndelay before payment: " + delayBeforePayment + "\nrisk: " + risk;
@@ -92,8 +91,8 @@ public class Bonds implements Investment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bonds bonds = (Bonds) o;
-        return uid.equals(bonds.uid);
+        BondsDTO bondsDTO = (BondsDTO) o;
+        return uid.equals(bondsDTO.uid);
     }
 
     @Override

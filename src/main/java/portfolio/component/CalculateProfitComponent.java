@@ -1,7 +1,6 @@
 package portfolio.component;
 
 
-import portfolio.model.Investment;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package portfolio.repository;
 
-import portfolio.model.MetalType;
-import portfolio.model.PreciousMetal;
+import portfolio.dto.MetalTypeDTO;
+import portfolio.dto.PreciousMetalDTO;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -10,23 +10,23 @@ import java.util.UUID;
 
 public class PreciousRepositoryImpl implements PreciousMetalRepository{
 
-    private List<PreciousMetal> metals = new ArrayList<>();
+    private List<PreciousMetalDTO> metals = new ArrayList<>();
 
 
     @PostConstruct
     private void init(){
-        metals.add(new PreciousMetal(MetalType.GOLD, 1200, 7));
-        metals.add(new PreciousMetal(MetalType.PLATINUM, 2000, 10));
-        metals.add(new PreciousMetal(MetalType.SILVER, 700, 5));
+        metals.add(new PreciousMetalDTO(MetalTypeDTO.GOLD, 1200, 7));
+        metals.add(new PreciousMetalDTO(MetalTypeDTO.PLATINUM, 2000, 10));
+        metals.add(new PreciousMetalDTO(MetalTypeDTO.SILVER, 700, 5));
     }
 
     @Override
-    public List<PreciousMetal> findAll() {
+    public List<PreciousMetalDTO> findAll() {
         return metals;
     }
 
     @Override
-    public PreciousMetal findByType(MetalType type) {
+    public PreciousMetalDTO findByType(MetalTypeDTO type) {
         for (int i = 0; i < metals.size(); i++) {
             if (metals.get(i).getType().equals(type)) return metals.get(i);
         }
@@ -34,7 +34,7 @@ public class PreciousRepositoryImpl implements PreciousMetalRepository{
     }
 
     @Override
-    public PreciousMetal findByUid(UUID uid) {
+    public PreciousMetalDTO findByUid(UUID uid) {
         for (int i = 0; i < metals.size(); i++) {
             if (metals.get(i).getUid().equals(uid)) return metals.get(i);
         }
@@ -42,8 +42,8 @@ public class PreciousRepositoryImpl implements PreciousMetalRepository{
     }
 
     @Override
-    public void save(PreciousMetal preciousMetal) {
-        metals.add(preciousMetal);
+    public void save(PreciousMetalDTO preciousMetalDTO) {
+        metals.add(preciousMetalDTO);
     }
 
 

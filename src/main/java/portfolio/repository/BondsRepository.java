@@ -1,19 +1,19 @@
 package portfolio.repository;
 
-import portfolio.model.Bonds;
+import portfolio.dto.BondsDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface BondsRepository {
 
-    List<Bonds> findAll();
+    List<BondsDTO> findAll();
 
-    Bonds findByName(String name);
+    BondsDTO findByName(String name);
 
-    Bonds findByUid(UUID uid);
+    BondsDTO findByUid(UUID uid);
 
-    void save(Bonds b);
+    void save(BondsDTO b);
 
     void delete(UUID uid);
 

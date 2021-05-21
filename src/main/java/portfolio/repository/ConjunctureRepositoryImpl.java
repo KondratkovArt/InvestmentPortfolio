@@ -1,8 +1,7 @@
 package portfolio.repository;
 
 
-import portfolio.model.Conjuncture;
-import portfolio.model.Investment;
+import portfolio.dto.ConjunctureDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +12,7 @@ import java.util.List;
 @Repository
 public class ConjunctureRepositoryImpl implements ConjunctureRepository {
 
-    private Conjuncture conjuncture = new Conjuncture();
+    private ConjunctureDTO conjuncture = new ConjunctureDTO();
 
     @Autowired
     private BondsRepository bondsRepository;
@@ -41,7 +40,7 @@ public class ConjunctureRepositoryImpl implements ConjunctureRepository {
     }
 
     @Override
-    public Conjuncture getConjuncture() {
+    public ConjunctureDTO getConjuncture() {
         return conjuncture;
     }
 
@@ -51,7 +50,7 @@ public class ConjunctureRepositoryImpl implements ConjunctureRepository {
     }
 
     @Override
-    public void save(Conjuncture conjuncture) {
+    public void save(ConjunctureDTO conjuncture) {
         this.conjuncture = conjuncture;
     }
 

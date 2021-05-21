@@ -1,6 +1,6 @@
 package portfolio.repository;
 
-import portfolio.model.Deposit;
+import portfolio.dto.DepositDTO;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -9,43 +9,43 @@ import java.util.UUID;
 
 public class DepositRepositoryImpl implements DepositRepository {
 
-    private List<Deposit> deposits = new ArrayList<>();
+    private List<DepositDTO> depositDTOS = new ArrayList<>();
 
 
     @PostConstruct
     private void init(){
-        deposits.add(new Deposit("deposit1", 7, 15, 2));
-        deposits.add(new Deposit("deposit2", 3, 20, 10));
+        depositDTOS.add(new DepositDTO("deposit1", 7, 15, 2));
+        depositDTOS.add(new DepositDTO("deposit2", 3, 20, 10));
     }
 
     @Override
-    public List<Deposit> findAll() {
-        return deposits;
+    public List<DepositDTO> findAll() {
+        return depositDTOS;
     }
 
     @Override
-    public Deposit findByName(String name) {
-        for (int i = 0; i < deposits.size(); i++) {
-            if (deposits.get(i).getName().equals(name)) return deposits.get(i);
+    public DepositDTO findByName(String name) {
+        for (int i = 0; i < depositDTOS.size(); i++) {
+            if (depositDTOS.get(i).getName().equals(name)) return depositDTOS.get(i);
         }
         return null;
     }
 
     @Override
-    public Deposit findByUid(UUID uid) {
-        for (int i = 0; i < deposits.size(); i++) {
-            if (deposits.get(i).getUid().equals(uid)) return deposits.get(i);
+    public DepositDTO findByUid(UUID uid) {
+        for (int i = 0; i < depositDTOS.size(); i++) {
+            if (depositDTOS.get(i).getUid().equals(uid)) return depositDTOS.get(i);
         }
         return null;
     }
 
     @Override
-    public void save(Deposit deposit) {
-        deposits.add(deposit);
+    public void save(DepositDTO depositDTO) {
+        depositDTOS.add(depositDTO);
     }
 
     @Override
     public void delete(UUID uid) {
-        deposits.remove(findByUid(uid));
+        depositDTOS.remove(findByUid(uid));
     }
 }

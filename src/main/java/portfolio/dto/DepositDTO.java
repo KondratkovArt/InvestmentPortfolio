@@ -1,23 +1,23 @@
-package portfolio.model;
+package portfolio.dto;
 
 import java.util.UUID;
 
-public class Deposit implements Investment {
+public class DepositDTO {
 
-    private UUID uid = UUID.randomUUID();
+    private UUID uid;
     private String name;
     private int minimalPeriod;
     private double interestRate;
     private int risk;
 
-    public Deposit(String name, int minimalPeriod, double interestRate, int risk) {
+    public DepositDTO(UUID uid, String name, int minimalPeriod, double interestRate, int risk) {
+        this.uid = uid;
         this.name = name;
         this.minimalPeriod = minimalPeriod;
         this.interestRate = interestRate;
         this.risk = risk;
     }
 
-    @Override
     public String getInfo() {
         return "\nminimalPeriod: " + minimalPeriod + "\ninterestRate: " + interestRate +
                 "\nrisk: " + risk;
@@ -48,7 +48,6 @@ public class Deposit implements Investment {
         this.risk = risk;
     }
 
-
     public String getName() {
         return name;
     }
@@ -57,7 +56,6 @@ public class Deposit implements Investment {
         this.name = name;
     }
 
-    @Override
     public UUID getUid() {
         return uid;
     }
