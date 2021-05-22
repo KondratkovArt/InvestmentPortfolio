@@ -2,17 +2,16 @@ package portfolio.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import portfolio.dto.StockDTO;
+import portfolio.dto.BondDTO;
 import portfolio.model.Bond;
 import portfolio.model.Conjuncture;
-import portfolio.model.Stock;
 
 import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface StockRepository extends CrudRepository<Stock, Integer> {
+public interface BondRepository extends CrudRepository<Bond, Integer> {
 
-    List<Stock> findByConjuncture(Conjuncture conjuncture);
+    List<Bond> findByConjuncture(Conjuncture conjuncture);
 
 }
