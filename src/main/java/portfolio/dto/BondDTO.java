@@ -1,5 +1,7 @@
 package portfolio.dto;
 
+import portfolio.model.Bond;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -10,15 +12,28 @@ public class BondDTO {
     private Double payment;
     private Integer delayBeforePayment;
     private Integer risk;
+    private ConjunctureDTO conjunctureDTO;
 
 
-    public BondDTO(String name, Double cost, Integer delayBeforePayment, Integer risk, Double payment) {
+    public BondDTO(String name, Double cost, Integer delayBeforePayment, Integer risk,
+                   Double payment, ConjunctureDTO conjunctureDTO) {
         this.name = name;
         this.cost = cost;
         this.delayBeforePayment = delayBeforePayment;
         this.risk = risk;
         this.payment = payment;
+        this.conjunctureDTO = conjunctureDTO;
     }
+
+    public BondDTO(Bond bond) {
+        this.name = bond.getName();
+        this.cost = bond.getCost();
+        this.delayBeforePayment = bond.getDelayBeforePayment();
+        this.risk = bond.getRisk();
+        this.payment = bond.getPayment();
+        this.conjunctureDTO = new ConjunctureDTO(bond.getConjuncture());
+    }
+
 
 
     @Override
@@ -71,4 +86,11 @@ public class BondDTO {
         this.risk = risk;
     }
 
+    public ConjunctureDTO getConjunctureDTO() {
+        return conjunctureDTO;
+    }
+
+    public void setConjunctureDTO(ConjunctureDTO conjunctureDTO) {
+        this.conjunctureDTO = conjunctureDTO;
+    }
 }

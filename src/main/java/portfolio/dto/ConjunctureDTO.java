@@ -1,21 +1,55 @@
 package portfolio.dto;
 
+import portfolio.model.Conjuncture;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class ConjunctureDTO {
 
+    private String name;
+
     private List<BondDTO> bonds;
     private List<DepositDTO> deposits;
     private List<PreciousMetalDTO> metals;
     private List<StockDTO> stocks;
 
-    public ConjunctureDTO(List<BondDTO> bonds, List<DepositDTO> deposits, List<PreciousMetalDTO> metals, List<StockDTO> stocks) {
+    public ConjunctureDTO(String name, List<BondDTO> bonds, List<DepositDTO> deposits, List<PreciousMetalDTO> metals, List<StockDTO> stocks) {
+        this.name = name;
         this.bonds = bonds;
         this.deposits = deposits;
         this.metals = metals;
         this.stocks = stocks;
+    }
+
+    public ConjunctureDTO(Conjuncture conjuncture) {
+        this.name = conjuncture.getName();
+
+        List<BondDTO> bondDTOs = new ArrayList<>();
+        for (var bond : conjuncture.getBonds()) {
+            bondDTOs.add(new BondDTO(bond));
+        }
+        this.bonds = bondDTOs;
+
+        List<DepositDTO> depositDTOs = new ArrayList<>();
+        for (var deposit : conjuncture.getDeposits()) {
+            depositDTOs.add(new DepositDTO(deposit));
+        }
+        this.deposits = depositDTOs;
+
+        List<PreciousMetalDTO> pmDTOs = new ArrayList<>();
+        for (var pm : conjuncture.getPreciousMetals()) {
+            pmDTOs.add(new PreciousMetalDTO(pm));
+        }
+        this.metals = pmDTOs;
+
+        List<StockDTO> stockDTOs = new ArrayList<>();
+        for (var stock : conjuncture.getStocks()) {
+            stockDTOs.add(new StockDTO(stock));
+        }
+        this.stocks = stockDTOs;
+
     }
 
     public List<BondDTO> getBonds() {
@@ -48,6 +82,14 @@ public class ConjunctureDTO {
 
     public void setStocks(List<StockDTO> stocks) {
         this.stocks = stocks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

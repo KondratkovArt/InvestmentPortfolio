@@ -12,6 +12,9 @@ public class Conjuncture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer conjuncture_id;
 
+    @Column(name = "name")
+    private String name;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "conjuncture")
     private List<Bond> bonds;
 
@@ -57,5 +60,21 @@ public class Conjuncture {
 
     public void setStocks(List<Stock> stocks) {
         this.stocks = stocks;
+    }
+
+    public Integer getConjuncture_id() {
+        return conjuncture_id;
+    }
+
+    public void setConjuncture_id(Integer conjuncture_id) {
+        this.conjuncture_id = conjuncture_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

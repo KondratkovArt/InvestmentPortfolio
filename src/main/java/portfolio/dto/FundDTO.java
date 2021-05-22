@@ -8,21 +8,23 @@ public class FundDTO {
     private Double capital;
     private Double profit;
 
-    private List<BondDTO>  bonds;
+    private List<BondDTO> bonds;
     private List<DepositDTO> depositDTOS;
     private List<PreciousMetalDTO> metals;
     private List<StockDTO> stockDTOS;
+    private ConjunctureDTO conjunctureDTO;
 
 
     public FundDTO(Double capital, Double profit, List<BondDTO> bonds,
                    List<DepositDTO> depositDTOS, List<PreciousMetalDTO> metals,
-                   List<StockDTO> stockDTOS) {
+                   List<StockDTO> stockDTOS, ConjunctureDTO conjunctureDTO) {
         this.capital = capital;
         this.profit = profit;
         this.bonds = bonds;
         this.depositDTOS = depositDTOS;
         this.metals = metals;
         this.stockDTOS = stockDTOS;
+        this.conjunctureDTO = conjunctureDTO;
     }
 
     public Double getCapital() {
@@ -71,5 +73,26 @@ public class FundDTO {
 
     public void setStockDTOS(List<StockDTO> stockDTOS) {
         this.stockDTOS = stockDTOS;
+    }
+
+    public ConjunctureDTO getConjunctureDTO() {
+        return conjunctureDTO;
+    }
+
+    public void setConjunctureDTO(ConjunctureDTO conjunctureDTO) {
+        this.conjunctureDTO = conjunctureDTO;
+    }
+
+    @Override
+    public String toString() {
+        return "FundDTO{" +
+                "capital=" + capital +
+                ", profit=" + profit +
+                ", bonds=" + bonds +
+                ", depositDTOS=" + depositDTOS +
+                ", metals=" + metals +
+                ", stockDTOS=" + stockDTOS +
+                ", conjunctureDTO=" + conjunctureDTO +
+                '}';
     }
 }

@@ -1,5 +1,8 @@
 package portfolio.dto;
 
+import portfolio.model.MetalType;
+import portfolio.model.PreciousMetal;
+
 import java.util.UUID;
 
 public class PreciousMetalDTO {
@@ -7,11 +10,20 @@ public class PreciousMetalDTO {
     private MetalTypeDTO type;
     private Double cost;
     private Integer risk;
+    private ConjunctureDTO conjunctureDTO;
 
-    public PreciousMetalDTO(MetalTypeDTO type, Double cost, Integer risk) {
+    public PreciousMetalDTO(MetalTypeDTO type, Double cost, Integer risk, ConjunctureDTO conjunctureDTO) {
         this.type = type;
         this.cost = cost;
         this.risk = risk;
+        this.conjunctureDTO = conjunctureDTO;
+    }
+
+    public PreciousMetalDTO(PreciousMetal pm) {
+        this.type = new MetalTypeDTO(pm.getMetal_type());
+        this.cost = pm.getCost();
+        this.risk = pm.getRisk();
+        this.conjunctureDTO = new ConjunctureDTO(pm.getConjuncture());
     }
 
     public MetalTypeDTO getType() {
@@ -36,6 +48,14 @@ public class PreciousMetalDTO {
 
     public void setRisk(Integer risk) {
         this.risk = risk;
+    }
+
+    public ConjunctureDTO getConjunctureDTO() {
+        return conjunctureDTO;
+    }
+
+    public void setConjunctureDTO(ConjunctureDTO conjunctureDTO) {
+        this.conjunctureDTO = conjunctureDTO;
     }
 
     @Override

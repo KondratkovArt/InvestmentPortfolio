@@ -1,15 +1,21 @@
 package portfolio.dto;
 
+import portfolio.model.MetalType;
+
 import java.util.UUID;
 
-public enum MetalTypeDTO {
-    ;
+public class MetalTypeDTO {
 
     private String type;
 
-    MetalTypeDTO(String type) {
+    public MetalTypeDTO(String type) {
         this.type = type;
     }
+
+    public MetalTypeDTO(MetalType metalType) {
+        this.type = metalType.getType();
+    }
+
 
     public String getType() {
         return type;

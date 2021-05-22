@@ -1,5 +1,7 @@
 package portfolio.dto;
 
+import portfolio.model.Stock;
+
 import java.util.UUID;
 
 public class StockDTO {
@@ -8,13 +10,23 @@ public class StockDTO {
     private Double price;
     private Integer risk;
     private Double profitability;
+    private ConjunctureDTO conjunctureDTO;
 
 
-    public StockDTO(String name, Double price, Integer risk, Double profitability) {
+    public StockDTO(String name, Double price, Integer risk, Double profitability, ConjunctureDTO conjunctureDTO) {
         this.name = name;
         this.price = price;
         this.risk = risk;
         this.profitability = profitability;
+        this.conjunctureDTO = conjunctureDTO;
+    }
+
+    public StockDTO(Stock stock) {
+        this.name = stock.getName();
+        this.price = stock.getPrice();
+        this.risk = stock.getRisk();
+        this.profitability = stock.getProfitability();
+        this.conjunctureDTO = new ConjunctureDTO(stock.getConjuncture());
     }
 
     public String getName() {
@@ -47,6 +59,14 @@ public class StockDTO {
 
     public void setProfitability(Double profitability) {
         this.profitability = profitability;
+    }
+
+    public ConjunctureDTO getConjunctureDTO() {
+        return conjunctureDTO;
+    }
+
+    public void setConjunctureDTO(ConjunctureDTO conjunctureDTO) {
+        this.conjunctureDTO = conjunctureDTO;
     }
 
     @Override

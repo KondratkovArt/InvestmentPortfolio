@@ -14,4 +14,5 @@ public interface ConjunctureRepository extends CrudRepository<Conjuncture, Integ
 
     Optional<Conjuncture> findByConjuncture_id(Integer id);
 
+    Optional<Conjuncture> findByName(String name);
 }
