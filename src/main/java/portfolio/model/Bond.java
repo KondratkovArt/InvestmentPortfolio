@@ -10,7 +10,7 @@ public class Bond {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID uid;
+    private Integer bond_id;
 
     @Column(name = "cost")
     private Double cost;
@@ -27,28 +27,21 @@ public class Bond {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "conjuctureID")
-    private Integer conjunctureID;
+    @ManyToOne
+    @JoinColumn(name = "conjuncture_id")
+    private Conjuncture conjuncture;
 
-    public Bond(Double cost, Double payment, Integer delayBeforePayment, Integer risk, String name, Integer conjunctureID) {
+    public Bond(Double cost, Double payment, Integer delayBeforePayment, Integer risk, String name, Conjuncture conjuncture) {
         this.cost = cost;
         this.payment = payment;
         this.delayBeforePayment = delayBeforePayment;
         this.risk = risk;
         this.name = name;
-        this.conjunctureID = conjunctureID;
+        this.conjuncture = conjuncture;
     }
 
     public Bond() {
 
-    }
-
-    public UUID getUid() {
-        return uid;
-    }
-
-    public void setUid(UUID uid) {
-        this.uid = uid;
     }
 
     public Double getCost() {
@@ -91,24 +84,24 @@ public class Bond {
         this.name = name;
     }
 
-    public Integer getConjunctureID() {
-        return conjunctureID;
+    public Conjuncture getConjuncture() {
+        return conjuncture;
     }
 
-    public void setConjunctureID(Integer conjunctureID) {
-        this.conjunctureID = conjunctureID;
+    public void setConjuncture(Conjuncture conjuncture) {
+        this.conjuncture = conjuncture;
     }
 
     @Override
     public String toString() {
         return "Bond{" +
-                "uid=" + uid +
+                "bond_id=" + bond_id +
                 ", cost=" + cost +
                 ", payment=" + payment +
                 ", delayBeforePayment=" + delayBeforePayment +
                 ", risk=" + risk +
                 ", name='" + name + '\'' +
-                ", conjunctureID=" + conjunctureID +
+                ", conjuncture=" + conjuncture +
                 '}';
     }
 }

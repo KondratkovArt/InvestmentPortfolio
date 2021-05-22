@@ -8,7 +8,7 @@ public class MetalType {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer metal_type_id;
 
     @Column(name = "type")
     private String type;

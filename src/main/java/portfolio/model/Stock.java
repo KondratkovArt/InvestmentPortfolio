@@ -2,24 +2,23 @@ package portfolio.model;
 
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
-@Table(name = "Deposit")
-public class Deposit {
+@Table(name = "stock")
+public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer deposit_id;
+    private Integer stock_id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "minimalPeriod")
-    private Integer minimalPeriod;
+    @Column(name = "profitability")
+    private Double profitability;
 
-    @Column(name = "interestRate")
-    private Double interestRate;
+    @Column(name = "price")
+    private Double price;
 
     @Column(name = "risk")
     private Integer risk;
@@ -28,16 +27,16 @@ public class Deposit {
     @JoinColumn(name = "conjuncture_id")
     private Conjuncture conjuncture;
 
-    public Deposit() {
-
-    }
-
-    public Deposit(String name, Integer minimalPeriod, Double interestRate, Integer risk, Conjuncture conjuncture) {
+    public Stock(String name, Double profitability, Double price, Integer risk, Conjuncture conjuncture) {
         this.name = name;
-        this.minimalPeriod = minimalPeriod;
-        this.interestRate = interestRate;
+        this.profitability = profitability;
+        this.price = price;
         this.risk = risk;
         this.conjuncture = conjuncture;
+    }
+
+    public Stock(){
+
     }
 
     public String getName() {
@@ -48,20 +47,20 @@ public class Deposit {
         this.name = name;
     }
 
-    public Integer getMinimalPeriod() {
-        return minimalPeriod;
+    public Double getProfitability() {
+        return profitability;
     }
 
-    public void setMinimalPeriod(Integer minimalPeriod) {
-        this.minimalPeriod = minimalPeriod;
+    public void setProfitability(Double profitability) {
+        this.profitability = profitability;
     }
 
-    public Double getInterestRate() {
-        return interestRate;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setInterestRate(Double interestRate) {
-        this.interestRate = interestRate;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Integer getRisk() {
@@ -82,11 +81,11 @@ public class Deposit {
 
     @Override
     public String toString() {
-        return "Deposit{" +
-                "deposit_id=" + deposit_id +
+        return "Stock{" +
+                "stock_id=" + stock_id +
                 ", name='" + name + '\'' +
-                ", minimalPeriod=" + minimalPeriod +
-                ", interestRate=" + interestRate +
+                ", profitability=" + profitability +
+                ", price=" + price +
                 ", risk=" + risk +
                 ", conjuncture=" + conjuncture +
                 '}';
