@@ -9,6 +9,7 @@ import portfolio.repository.ConjunctureRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BondServiceData {
@@ -36,4 +37,13 @@ public class BondServiceData {
     }
 
 
+    public BondDTO get(Integer id) {
+        Optional<Bond> bondOptional = bondRepository.findById(id);
+
+        return bondOptional.map(BondDTO::new).orElse(null);
+    }
+
+    public void delete(Integer id) {
+        bondRepository.deleteById(id);
+    }
 }
