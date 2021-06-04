@@ -105,7 +105,7 @@ public class ConjunctureServiceData {
     public void addBondToConjuncture(Integer id, BondDTO bondDTO) {
         var conjuncture = conjunctureRepository.findById(id);
 
-        conjuncture.ifPresent(value -> conjunctureRepository.save(new Bond(
+        conjuncture.ifPresent(value -> bondRepository.save(new Bond(
                 bondDTO.getCost(), bondDTO.getPayment(), bondDTO.getDelayBeforePayment(),
                 bondDTO.getRisk(), bondDTO.getName(), conjuncture.get())));
     }
