@@ -1,6 +1,11 @@
 package portfolio.model;
 
 
+import portfolio.dto.BondDTO;
+import portfolio.dto.DepositDTO;
+import portfolio.dto.PreciousMetalDTO;
+import portfolio.dto.StockDTO;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,7 +32,8 @@ public class Conjuncture {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "conjuncture")
     private List<Stock> stocks;
 
-    public Conjuncture() {
+    public Conjuncture(String name) {
+        this.name = name;
     }
 
     public List<Bond> getBonds() {

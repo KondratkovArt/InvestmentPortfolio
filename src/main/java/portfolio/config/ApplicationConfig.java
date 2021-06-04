@@ -11,6 +11,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import portfolio.repository.BondRepository;
 //import warehouse.repository.ProductRepository;
 
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +20,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-//@EnableJpaRepositories(basePackageClasses = {ProductRepository.class})
+@EnableJpaRepositories(basePackageClasses = {BondRepository.class})
 public class ApplicationConfig {
 
     @Bean
