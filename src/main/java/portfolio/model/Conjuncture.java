@@ -72,6 +72,10 @@ public class Conjuncture {
         return conjuncture_id;
     }
 
+    public Conjuncture() {
+
+    }
+
     public void setConjuncture_id(Integer conjuncture_id) {
         this.conjuncture_id = conjuncture_id;
     }
