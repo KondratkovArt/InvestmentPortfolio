@@ -42,7 +42,6 @@ public class FundServiceJPA {
     }
 
     public void buyBond(Integer fundId, Integer bondId) {
-
         Fund fund = em.find(Fund.class, fundId);
         if (fund != null) {
             TypedQuery<Conjuncture> conjunctureQuery = em.createQuery(
